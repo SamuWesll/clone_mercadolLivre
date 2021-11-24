@@ -1,5 +1,7 @@
-import 'package:clone_mercado_livre/widgets/app_bar_search.dart';
 import 'package:flutter/material.dart';
+
+import 'package:clone_mercado_livre/widgets/app_menu_drawer.dart';
+import 'package:clone_mercado_livre/widgets/app_bar_search.dart';
 
 class HomeMyApp extends StatefulWidget {
   HomeMyApp({Key? key}) : super(key: key);
@@ -12,6 +14,9 @@ class _HomeMyAppState extends State<HomeMyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: AppMenuDrawer(),
+      ),
       appBar: AppBar(
         iconTheme: IconThemeData(
           color: Colors.black,
