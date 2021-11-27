@@ -1,3 +1,5 @@
+import 'package:clone_mercado_livre/pages/cart.dart';
+import 'package:clone_mercado_livre/pages/home.dart';
 import 'package:flutter/material.dart';
 
 import 'package:clone_mercado_livre/widgets/app_menu_drawer.dart';
@@ -24,7 +26,12 @@ class _HomeMyAppState extends State<HomeMyApp> {
         title: Text('Mercado Livre', style: TextStyle(color: Colors.black)),
         backgroundColor: Color.fromRGBO(255, 241, 89, 1),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Cart()));
+              },
+              icon: Icon(Icons.shopping_cart)),
           IconButton(
               onPressed: () {
                 showSearch(context: context, delegate: AppSearchBar());
@@ -33,7 +40,7 @@ class _HomeMyAppState extends State<HomeMyApp> {
         ],
       ),
       body: Center(
-        child: Text('Mercado Livre'),
+        child: Home(),
       ),
     );
   }

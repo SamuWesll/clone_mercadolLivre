@@ -1,3 +1,5 @@
+import 'package:clone_mercado_livre/pages/busca.dart';
+import 'package:clone_mercado_livre/pages/home.dart';
 import 'package:flutter/material.dart';
 
 class AppMenuDrawer extends StatelessWidget {
@@ -47,8 +49,38 @@ class AppMenuDrawer extends StatelessWidget {
                   )
                 ],
               )),
-        )
+        ),
+        _itemDrawer(context, Buscar(), icon: Icon(Icons.home), text: 'Home'),
+        _itemDrawer(context, Buscar(), icon: Icon(Icons.search), text: 'Busca'),
+        _itemDrawer(context, Buscar(),
+            icon: Icon(Icons.notifications), text: 'Notificações'),
+        _itemDrawer(context, Buscar(),
+            icon: Icon(Icons.shopping_bag), text: 'Minhas compras'),
+        Divider(color: Colors.grey),
+        _itemDrawer(context, Buscar(),
+            icon: Icon(Icons.store), text: 'Supermercado'),
+        _itemDrawer(context, Buscar(),
+            icon: Icon(Icons.dry_cleaning), text: 'Moda'),
       ],
+    );
+  }
+
+  Widget _itemDrawer(context, page,
+      {required Icon icon, required String text}) {
+    return ListTile(
+      leading: IconTheme(
+        child: icon,
+        data: IconThemeData(color: Colors.grey),
+      ),
+      title: Text(
+        text,
+        style: TextStyle(
+          color: Colors.grey,
+        ),
+      ),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+      },
     );
   }
 }
